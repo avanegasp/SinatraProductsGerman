@@ -1,0 +1,19 @@
+<a href="/products/new">Nuevo Producto</a>
+
+<table border="1">
+  <tr>
+    <th>Nombre</th>
+  </tr>
+  <% @products.each do |p| %>
+    <tr>
+      <td><%= p.name %></td>
+      <td><a href="/products/<%= p.id %>/edit">Editar</a></td>
+      <td>
+        <form action="/products/<%= p.id %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Borrar">
+        </form>
+      </td>
+    </tr>
+  <% end %>
+</table>
